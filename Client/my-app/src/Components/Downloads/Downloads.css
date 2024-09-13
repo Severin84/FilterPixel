@@ -1,0 +1,177 @@
+.DownloadButton{
+    height: 3rem;
+    width: 7rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    margin-left: 4rem;
+}
+
+.format_Div{
+    width: 9rem;
+    height: 6rem;
+    margin-left: 3rem;
+    border-radius: 0.5rem;
+    background-color: firebrick;
+}
+.format_Binder{
+   display: flex;   
+   flex-direction: column;
+   font-size: 1.1rem;
+   padding-left: 1rem;
+   padding-top: 0.5rem;
+}
+.JPEG_format{
+    height: 2rem;
+    width: 7rem;
+    background-color: darkgreen;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.png_format{
+    height: 2rem;
+    width: 7rem;
+    background-color:darkkhaki;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+@media only screen and (max-width:1280px){
+    .DownloadButton{
+        height: 3rem;
+        width: 7rem;
+        font-size: 0.9rem;
+        border-radius: 0.5rem;
+        margin-left: 3.5rem;
+    }
+    
+    .format_Div{
+        width: 7rem;
+        height: 6rem;
+        margin-left: 3.5rem;
+        border-radius: 0.5rem;
+        background-color: firebrick;
+    }
+    .format_Binder{
+       display: flex;   
+       flex-direction: column;
+       font-size: 0.8rem;
+       padding-left: 1rem;
+       padding-top: 0.5rem;
+    }
+    .JPEG_format{
+        height: 2rem;
+        width: 5rem;
+        background-color: darkgreen;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .png_format{
+        height: 2rem;
+        width: 5rem;
+        background-color:darkkhaki;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.5rem;
+    }
+}
+
+@media only screen and (max-width:768px){
+    .DownloadButton{
+        height: 2.5rem;
+        width: 6rem;
+        font-size: 1.1rem;
+        border-radius: 0.5rem;
+        margin-left: 1.5rem;
+    }
+    
+    .format_Div{
+        width: 7rem;
+        height: 6rem;
+        margin-left: 1rem;
+        border-radius: 0.5rem;
+        background-color: firebrick;
+    }
+    .format_Binder{
+       display: flex;   
+       flex-direction: column;
+       font-size: 0.8rem;
+       padding-left: 1rem;
+       padding-top: 0.5rem;
+    }
+    .JPEG_format{
+        height: 2rem;
+        width: 5rem;
+        background-color: darkgreen;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .png_format{
+        height: 2rem;
+        width: 5rem;
+        background-color:darkkhaki;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.5rem;
+    }
+}
+
+@media only screen and (max-width:480px){
+    .DownloadButton{
+        height: 2.5rem;
+        width: 6rem;
+        font-size: 1.1rem;
+        border-radius: 0.5rem;
+        margin-left: 1rem;
+    }
+    
+    .format_Div{
+        width: 7rem;
+        height: 6rem;
+        margin-left: 0.5rem;
+        border-radius: 0.5rem;
+        background-color: firebrick;
+    }
+    .format_Binder{
+       display: flex;   
+       flex-direction: column;
+       font-size: 0.8rem;
+       padding-left: 1rem;
+       padding-top: 0.5rem;
+    }
+    .JPEG_format{
+        height: 2rem;
+        width: 5rem;
+        background-color: darkgreen;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .png_format{
+        height: 2rem;
+        width: 5rem;
+        background-color:darkkhaki;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.5rem;
+    }
+}

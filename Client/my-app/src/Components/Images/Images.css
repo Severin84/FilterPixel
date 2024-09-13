@@ -1,0 +1,197 @@
+.MainPage_Upload_preview_Binder{
+    display: flex;
+    width: 70rem;
+    background-color: cadetblue;
+    height: 25rem;
+    gap:2rem;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.Image_Uploaded{
+    width: 20rem;
+    height: 20rem;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.Image_preview{
+    width: 20rem;
+    height: 20rem;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.UploadNewImageDiv{
+    width: 10rem;
+    height: 3rem;
+    background-color: rgb(43, 197, 5);
+    border-radius: 0.5rem;
+}
+
+.UploadNewImageDiv > label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.UploadNewImageButton{
+    height: inherit;
+    width: inherit;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+}
+
+.UploadedImage{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+.custom_file_upload{
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
+    height: inherit;
+    width: inherit;
+    border-radius: 0.5rem;
+}
+
+
+
+
+@media only screen and (max-width:1280px){
+    .MainPage_Upload_preview_Binder{
+        display: flex;
+        width: 60rem;
+        background-color: cadetblue;
+        height: 25rem;
+        gap:2rem;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width:768px){
+    .MainPage_Upload_preview_Binder{
+        display: flex;
+        width: 35rem;
+        background-color: rgb(163, 12, 187);
+        height: 25rem;
+        gap:1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    .Image_Uploaded{
+        width: 15rem;
+        height: 15rem;
+        background-color: brown;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    .Image_preview{
+        width: 15rem;
+        height: 15rem;
+        background-color: brown;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .UploadNewImageDiv{
+        width: 7rem;
+        height: 3rem;
+        background-color: rgb(43, 197, 5);
+        border-radius: 0.5rem;
+    }
+    
+    .UploadNewImageDiv > label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9rem;
+    }
+    
+    /* .UploadNewImageButton{
+        height: inherit;
+        width: inherit;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+    } */
+    
+    /* .UploadedImage{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    } */
+}
+
+@media only screen and (max-width:480px){
+     .MainPage_Upload_preview_Binder{
+        display: flex;
+        width: 20rem;
+        background-color: rgb(232, 12, 19);
+        height: 25rem;
+        gap:0.5rem;
+        flex-direction: column;
+    }
+    .Image_Uploaded{
+        width: 15rem;
+        height: 15rem;
+        background-color: brown;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    .Image_preview{
+        /* width: 15rem;
+        height: 15rem; */
+        background-color: brown;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .UploadNewImageDiv{
+        width: 7rem;
+        height: 2.3rem;
+        background-color: rgb(43, 197, 5);
+        /* border-radius: 0.5rem; */
+    }
+    
+    /* .UploadNewImageDiv > label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9rem;
+    }
+     */
+    /* .UploadNewImageButton{
+        height: inherit;
+        width: inherit;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+    } */
+    
+    /* .UploadedImage{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    } */
+}

@@ -1,0 +1,139 @@
+.MainPage{
+    height: 98vh;
+    width: 95vw;
+    background-color: aquamarine;
+}
+.MainPage_Upload_preview_Download_Binder{
+    display: flex;
+    width: 90rem;
+    height: 25rem;
+    background-color: beige;
+}
+
+.MainPage_Download_Binder{
+    width: 15rem;
+    height: 15rem;
+    background-color: chocolate;
+    margin-top: 2rem;
+    margin-left: 2.5rem;
+
+}
+
+.MainPage_Brightness_Saturation_Contrast_Rotate_Deg_Binder{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 0.5rem;
+   margin-left: -20rem;
+}
+.MainPage_Brightness_Saturation_Contrast_Rotate_Deg{
+    width: 60rem;
+    height: 22rem;
+    background-color: cornflowerblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+@media only screen and (max-width:1285px){
+    .MainPage_Brightness_Saturation_Contrast_Rotate_Deg_Binder{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.5rem;
+        margin-left: 0.5rem;
+        background-color: indianred;
+     }
+     .MainPage_Brightness_Saturation_Contrast_Rotate_Deg{
+         width: 60rem;
+         height: 22rem;
+         background-color: cornflowerblue;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+     }
+     .MainPage_Upload_preview_Download_Binder{
+        display: flex;
+        width: inherit;
+        height: 25rem;
+        background-color: rgb(143, 143, 7);
+    }
+    
+    .MainPage_Download_Binder{
+        width:14rem;
+        height: 15rem;
+        background-color: chocolate;
+        margin-top: 2rem;
+        margin-left: 0.5rem;
+    }
+}
+
+@media only screen and (max-width:768px){
+    .MainPage_Brightness_Saturation_Contrast_Rotate_Deg_Binder{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.5rem;
+        margin-left: -10rem;
+     }
+     .MainPage_Brightness_Saturation_Contrast_Rotate_Deg{
+         width: 40rem;
+         height: 22rem;
+         background-color: cornflowerblue;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin-left: 10rem;
+     }
+     .MainPage_Upload_preview_Download_Binder{
+        display: flex;
+        width: inherit;
+        height: 25rem;
+        background-color: rgb(143, 143, 7);
+    }
+    
+    .MainPage_Download_Binder{
+        width: 9rem;
+        height: 15rem;
+        background-color: chocolate;
+        margin-top: 2rem;
+        margin-left: 0.5rem;
+    }
+}
+
+@media only screen and (max-width:480px){
+    .MainPage_Brightness_Saturation_Contrast_Rotate_Deg_Binder{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.5rem;
+        margin-left: -20rem;
+     }
+     .MainPage_Brightness_Saturation_Contrast_Rotate_Deg{
+         width: 25rem;
+         height: 22rem;
+         background-color: cornflowerblue;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin-left: 20rem;
+     }
+     .MainPage_Upload_preview_Download_Binder{
+        display: flex;
+        width: inherit;
+        height: 25rem;
+        background-color: rgb(143, 143, 7);
+    }
+    
+    .MainPage_Download_Binder{
+        width: 9rem;
+        height: 15rem;
+        background-color: chocolate;
+        margin-top: 2rem;
+        /* margin-left: 0.5rem; */
+    }
+}
+
