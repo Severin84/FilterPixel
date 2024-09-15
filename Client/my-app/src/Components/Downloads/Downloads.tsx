@@ -1,8 +1,17 @@
 import React, { useState } from 'react'
 import "./Downloads.css"
+import { ImageConfigure } from '../../hooks/ImageConfigure';
+import { useContextProvider } from '../../Context/Context';
 const Downloads = () => {
   
   const [showDownloadformat,setShowDownloadformat]=useState<boolean>(false);
+  const {setSelectedformat}=useContextProvider();
+  const {downloadImage}=ImageConfigure();
+
+  const handleSelectformat=(value:string)=>{
+      setSelectedformat(value);
+      downloadImage();
+  }
 
   return (
     <div>
@@ -12,11 +21,10 @@ const Downloads = () => {
        
        <div style={{transform:showDownloadformat? "translateY(1rem)":"translateY(0rem)",transition:"transform 500ms ease",visibility:showDownloadformat?"visible":"hidden"}} className='format_Div'>
          <div className='format_Binder'>
-          <span className='JPEG_format'>JPEG Format</span>
-          <span className='png_format'>PNG Format</span>
+          <span className='JPEG_format' onClick={()=>handleSelectformat("jpeg")}>JPEG Format</span>
+          <span className='png_format'  onClick={()=>handleSelectformat("png")}>PNG Format</span>
          </div>
        </div>
-      
     </div>
   )
 }

@@ -1,17 +1,24 @@
 import React from 'react'
 import "./Slider.css"
 import { useContextProvider } from '../../Context/Context'
-import Images from '../Images/Images';
 import { ImageConfigure } from '../../hooks/ImageConfigure';
 
 const Sliders = () => {
-   const {brightnesslevel,setBrightnesslevel,saturation,setSaturation,contrast,setContrast,rotationDeg,setRotationDeg}=useContextProvider();
-   const {changesetting}=ImageConfigure()
-
+   const {brightnesslevel,setBrightnesslevel,saturation,setSaturation,contrast,setContrast,rotationDeg,setRotationDeg,applyCrop,setApplycrop}=useContextProvider();
+   const {changesetting,handleApplyCrop}=ImageConfigure()
+   
+   const handleStartCrop=()=>{
+      setApplycrop(!applyCrop);
+   }
+   
   return (
     <div>
         <div>
             <button onClick={()=>changesetting()}>Apply</button>
+        </div>
+        <div>
+            <button onClick={()=>handleStartCrop()}>Crop</button>
+            <button onClick={()=>handleApplyCrop()}>save</button>
         </div>
     <div className='Image_Brightness'>
         <input defaultValue={1} type='range' className='BrightnessRange' min="1" max="100" onChange={(val)=>setBrightnesslevel(val.target.value)}/>

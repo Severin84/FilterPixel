@@ -1,3 +1,5 @@
+import { Area } from 'react-easy-crop';
+
 export interface settings{
     brightnesslevel:string;
     setBrightnesslevel: React.Dispatch<React.SetStateAction<string>>;
@@ -17,5 +19,11 @@ export interface settings{
     setRawfile:React.Dispatch<React.SetStateAction<string|Blob>>;
     responseImage:string|null;
     setResponseImage:React.Dispatch<React.SetStateAction<string|null>>;
+    selectedformat:string
+    setSelectedformat:React.Dispatch<React.SetStateAction<string>>;
+    applyCrop:boolean;
+    setApplycrop:React.Dispatch<React.SetStateAction<boolean>>;
+    croppedArea:Area|null;
+    setCroppedArea:React.Dispatch<React.SetStateAction<Area|null>>;
 }
 
