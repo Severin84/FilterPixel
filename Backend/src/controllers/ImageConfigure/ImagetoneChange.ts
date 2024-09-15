@@ -6,7 +6,8 @@ import sharp from "sharp";
 const ChangeImageTone=async(req:Request,res:Response)=>{
     try{
       const {filename,brightness,contrast,saturation,rotateDeg}=req.body;
-     
+       console.log(rotateDeg);
+       console.log(typeof(rotateDeg))
       if(!filename||!brightness || !contrast || !saturation || !rotateDeg){
           return res.send(404).json({message:"all parameter is required"});
       }
