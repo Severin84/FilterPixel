@@ -11,7 +11,6 @@ const ChangeImageTone=async(req:Request,res:Response)=>{
           return res.send(404).json({message:"all parameter is required"});
       }
       
-      
       const inputfilepath=path.resolve(__dirname,"../../../uploads",filename);
 
       if(!fs.existsSync(inputfilepath)){
