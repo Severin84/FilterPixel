@@ -6,7 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./dist/index.js",
     "dev": "nodemon",
-    "build": "tsc"
+    "build": "rimraf dist && tsc",
+    "ts.check":"tsc --project tsconfig.json",
+    "add-build":"git add dist"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +23,8 @@
     "cors": "^2.8.5",
     "express": "^4.21.0",
     "multer": "^1.4.5-lts.1",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^6.0.1",
     "save-dev": "^0.0.1-security",
     "sharp": "^0.33.5"
   },
@@ -31,5 +35,10 @@
     "nodemon": "^3.1.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2"
-  }
+  },
+  "pre-commit":[
+    "ts.check",
+    "build",
+    "add-build"
+  ]
 }
