@@ -14,10 +14,13 @@ export const ContextProvider=({children}:{children:ReactNode})=>{
     const [selectImage,setSelectedImage]=useState<string|null>(null);
     const [rawfile,setRawfile]=useState<string|Blob>("");
     const [responseImage,setResponseImage]=useState<string|null>(null)
-    const [selectedformat,setSelectedformat]=useState<string>("");
+    const [selectedformat,setSelectedformat]=useState<string|null>(null);
     const [applyCrop,setApplycrop]=useState<boolean>(false);
     const [croppedArea,setCroppedArea]=useState<Area|null>(null)
-
+    const [isDownload,setIsDownload]=useState<boolean>(false);
+    const [imageCord,setImageCord]=useState({x:0,y:0,width:0,height:0});
+    const [isCroped,setIsCroped]=useState<boolean>(false);
+    
     return (
          <Context.Provider 
          value={{
@@ -43,7 +46,13 @@ export const ContextProvider=({children}:{children:ReactNode})=>{
             applyCrop,
             setApplycrop,
             croppedArea,
-            setCroppedArea
+            setCroppedArea,
+            isDownload,
+            setIsDownload,
+            imageCord,
+            setImageCord,
+            isCroped,
+            setIsCroped
             }}>
             {children}
          </Context.Provider>

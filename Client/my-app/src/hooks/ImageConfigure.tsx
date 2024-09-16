@@ -3,8 +3,7 @@ import { useContextProvider } from '../Context/Context'
 import axios from 'axios';
 
 export const ImageConfigure = () => {
-    const {brightnesslevel,contrast,saturation,rotationDeg,filename,rawfile,setResponseImage,selectedformat,croppedArea}=useContextProvider();
-
+    const {brightnesslevel,contrast,saturation,rotationDeg,filename,rawfile,setResponseImage,selectedformat,croppedArea,isDownload,setIsDownload,imageCord,isCroped,setIsCroped}=useContextProvider();
          const changesetting=useCallback(async()=>{
             try{
                const response = await axios.post(`http://localhost:8000/api/upload/changeimagetone`,
@@ -78,37 +77,84 @@ export const ImageConfigure = () => {
 
     const downloadImageJPEG=async()=>{
         try{
-            const response=await axios.post("http://localhost:8000/api/upload/changetoJPEG",
-                {
-                    filename:filename,
-                    brightness:brightnesslevel,
-                    contrast:contrast,
-                    saturation:saturation,
-                    rotateDeg:rotationDeg,
-                    left:croppedArea?.x,
-                    top:croppedArea?.y,
-                    Cheight:croppedArea?.height,
-                    Cwidth:croppedArea?.width,
-                },{
-                    headers:{
-                        "Content-Type":"application/json"
-                    },
-                     responseType:"arraybuffer"
-                }
-            ).then((resposegot)=>{
-                const blob=new Blob([resposegot.data],{type:resposegot.headers["content-type"]});
-                const imageUrl=URL.createObjectURL(blob);
-                const a = document.createElement("a");
-                a.href=imageUrl;
-                const onlyFilename=filename.split(".")[0];
-                if(onlyFilename && onlyFilename.length){
-                    a.download=onlyFilename;
-                }
-                document.body.appendChild(a);
-                a.click();
-            }).catch((error)=>{
-                console.log(error)
-            })
+            if(isCroped===true){
+                const response=await axios.post("http://localhost:8000/api/upload/changetoJPEG",
+                    {
+                        filename:filename,
+                        left:croppedArea?.x,
+                        top:croppedArea?.y,
+                        Cheight:croppedArea?.height,
+                        Cwidth:croppedArea?.width,
+                        downloadstatus:isDownload,
+                        croppedStatus:isCroped,
+                    },{
+                        headers:{
+                            "Content-Type":"application/json"
+                        },
+                         responseType:"arraybuffer"
+                    }
+                ).then((resposegot)=>{
+                    if(isDownload===true){
+                        const blob=new Blob([resposegot.data],{type:resposegot.headers["content-type"]});
+                        const imageUrl=URL.createObjectURL(blob);
+                        const a = document.createElement("a");
+                        a.href=imageUrl;
+                        const onlyFilename=filename.split(".")[0];
+                        if(onlyFilename && onlyFilename.length){
+                            a.download=onlyFilename;
+                        }
+                        document.body.appendChild(a);
+                        a.click();
+                    }else{
+                        const blob=new Blob([resposegot.data],{type:resposegot.headers["content-type"]});
+                        const imageUrl=URL.createObjectURL(blob);
+                        setResponseImage(imageUrl);
+                    }
+                }).catch((error)=>{
+                    console.log(error)
+                }).finally(()=>{
+                   setIsDownload(false)
+                })
+
+            }else{
+                const response=await axios.post("http://localhost:8000/api/upload/changetoJPEG",
+                    {
+                        filename:filename,
+                        brightness:brightnesslevel,
+                        contrast:contrast,
+                        saturation:saturation,
+                        rotateDeg:rotationDeg,
+                        downloadstatus:isDownload,
+                        croppedStatus:isCroped,
+                    },{
+                        headers:{
+                            "Content-Type":"application/json"
+                        },
+                         responseType:"arraybuffer"
+                    }
+                ).then((resposegot)=>{
+                    if(isDownload===true){
+                        const blob=new Blob([resposegot.data],{type:resposegot.headers["content-type"]});
+                        const imageUrl=URL.createObjectURL(blob);
+                        const a = document.createElement("a");
+                        a.href=imageUrl;
+                        const onlyFilename=filename.split(".")[0];
+                        if(onlyFilename && onlyFilename.length){
+                            a.download=onlyFilename;
+                        }
+                        document.body.appendChild(a);
+                        a.click();
+                    }else{
+                        const blob=new Blob([resposegot.data],{type:resposegot.headers["content-type"]});
+                        const imageUrl=URL.createObjectURL(blob);
+                        setResponseImage(imageUrl);
+                    }
+                }).catch((error)=>{
+                    console.log(error)
+                }).finally(()=>{
+                    setIsDownload(false)
+                })
+            }
         }catch(error){
              console.log(error)
         }
@@ -116,37 +162,84 @@ export const ImageConfigure = () => {
 
     const downloadImagePNG=async()=>{
         try{
-            const response=await axios.post("http://localhost:8000/api/upload/changetoPNG",
-                {
-                    filename:filename,
-                    brightness:brightnesslevel,
-                    contrast:contrast,
-                    saturation:saturation,
-                    rotateDeg:rotationDeg,
-                    left:croppedArea?.x,
-                    top:croppedArea?.y,
-                    Cheight:croppedArea?.height,
-                    Cwidth:croppedArea?.width,
-                },{
-                    headers:{
-                        "Content-Type":"application/json"
-                    },
-                     responseType:"arraybuffer"
-                }
-            ).then((resposegot)=>{
-                const blob=new Blob([resposegot.data],{type:resposegot.headers["content-type"]});
-                const imageUrl=URL.createObjectURL(blob);
-                const a = document.createElement("a");
-                a.href=imageUrl;
-                const onlyFilename=filename.split(".")[0];
-                if(onlyFilename && onlyFilename.length){
-                    a.download=onlyFilename;
-                }
-                document.body.appendChild(a);
-                a.click();
-            }).catch((error)=>{
-                console.log(error)
-            })
+            if(isCroped===true){
+                const response=await axios.post("http://localhost:8000/api/upload/changetoPNG",
+                    {
+                        filename:filename,
+                        left:croppedArea?.x,
+                        top:croppedArea?.y,
+                        Cheight:croppedArea?.height,
+                        Cwidth:croppedArea?.width,
+                        downloadstatus:isDownload,
+                        croppedStatus:isCroped,
+                    },{
+                        headers:{
+                            "Content-Type":"application/json"
+                        },
+                         responseType:"arraybuffer"
+                    }
+                ).then((resposegot)=>{
+                    if(isDownload===true){
+                        const blob=new Blob([resposegot.data],{type:resposegot.headers["content-type"]});
+                        const imageUrl=URL.createObjectURL(blob);
+                        const a = document.createElement("a");
+                        a.href=imageUrl;
+                        const onlyFilename=filename.split(".")[0];
+                        if(onlyFilename && onlyFilename.length){
+                            a.download=onlyFilename;
+                        }
+                        document.body.appendChild(a);
+                        a.click();
+                    }else{
+                        const blob=new Blob([resposegot.data],{type:resposegot.headers["content-type"]});
+                        const imageUrl=URL.createObjectURL(blob);
+                        setResponseImage(imageUrl);
+                    }
+                }).catch((error)=>{
+                    console.log(error)
+                }).finally(()=>{
+                  setIsDownload(false)
+                })
+            }else{
+                const response=await axios.post("http://localhost:8000/api/upload/changetoPNG",
+                    {
+                        filename:filename,
+                        brightness:brightnesslevel,
+                        contrast:contrast,
+                        saturation:saturation,
+                        rotateDeg:rotationDeg,
+                        downloadstatus:isDownload,
+                        croppedStatus:isCroped,
+                    },{
+                        headers:{
+                            "Content-Type":"application/json"
+                        },
+                         responseType:"arraybuffer"
+                    }
+                ).then((resposegot)=>{
+                    if(isDownload===true){
+                        const blob=new Blob([resposegot.data],{type:resposegot.headers["content-type"]});
+                        const imageUrl=URL.createObjectURL(blob);
+                        const a = document.createElement("a");
+                        a.href=imageUrl;
+                        const onlyFilename=filename.split(".")[0];
+                        if(onlyFilename && onlyFilename.length){
+                            a.download=onlyFilename;
+                        }
+                        document.body.appendChild(a);
+                        a.click();
+                    }else{
+                        const blob=new Blob([resposegot.data],{type:resposegot.headers["content-type"]});
+                        const imageUrl=URL.createObjectURL(blob);
+                        setResponseImage(imageUrl);
+                    }
+                }).catch((error)=>{
+                    console.log(error)
+                }).finally(()=>{
+                   setIsDownload(false)
+                })
+            }
+            
         }catch(error){
              console.log(error)
         }

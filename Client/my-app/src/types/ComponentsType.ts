@@ -1,5 +1,11 @@
 import { Area } from 'react-easy-crop';
 
+interface imageCord{
+    x:number,
+    y:number,
+    width:number,
+    height:number,
+}
 export interface settings{
     brightnesslevel:string;
     setBrightnesslevel: React.Dispatch<React.SetStateAction<string>>;
@@ -19,11 +25,18 @@ export interface settings{
     setRawfile:React.Dispatch<React.SetStateAction<string|Blob>>;
     responseImage:string|null;
     setResponseImage:React.Dispatch<React.SetStateAction<string|null>>;
-    selectedformat:string
-    setSelectedformat:React.Dispatch<React.SetStateAction<string>>;
+    selectedformat:string|null
+    setSelectedformat:React.Dispatch<React.SetStateAction<string|null>>;
     applyCrop:boolean;
     setApplycrop:React.Dispatch<React.SetStateAction<boolean>>;
     croppedArea:Area|null;
     setCroppedArea:React.Dispatch<React.SetStateAction<Area|null>>;
+    isDownload:boolean;
+    setIsDownload:React.Dispatch<React.SetStateAction<boolean>>;
+    imageCord:imageCord;
+    setImageCord:React.Dispatch<React.SetStateAction<imageCord>>;
+    isCroped:boolean;
+    setIsCroped:React.Dispatch<React.SetStateAction<boolean>>;
 }
+
 
