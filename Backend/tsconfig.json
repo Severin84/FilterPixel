@@ -108,6 +108,6 @@
     "skipLibCheck": true ,                                /* Skip type checking all .d.ts files. */
     "typeRoots": ["./node_modules/@types"]
   },
-  "include": ["src/**/*.ts"],
+  "include": ["./src/**/*"],
   "exclude": ["node_modules","dist"]
 }
