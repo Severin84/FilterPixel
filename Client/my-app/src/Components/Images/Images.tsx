@@ -8,12 +8,11 @@ import { Area } from 'react-easy-crop';
 
 const Images = () => {
   
-  const {setFilename,selectImage,setSelectedImage,setRawfile,responseImage,applyCrop,croppedArea,setCroppedArea,imageCord,setImageCord,setIsCroped}=useContextProvider();
-  
+  const {setFilename,selectImage,setSelectedImage,setRawfile,responseImage,applyCrop,setCroppedArea,setImageCord,setIsCroped}=useContextProvider();
   const {uploadImage}=ImageConfigure()
   const [crop,setCrop]=useState({x:0.1,y:0.1});
   const [zoom,setZoom]=useState(1);
-  // const [imageCord,setImageCord]=useState({x:0,y:0,width:0,height:0})
+
 
   const handleUploadfile=(event: React.ChangeEvent<HTMLInputElement>)=>{
         const image=event.target.files?.[0];

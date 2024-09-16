@@ -11,6 +11,7 @@ const Sliders = () => {
       setApplycrop(!applyCrop);
    }
    
+   
   return (
     <div>
         <div className='slider_buttons'>

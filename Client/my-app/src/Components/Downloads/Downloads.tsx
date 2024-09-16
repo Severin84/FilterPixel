@@ -3,9 +3,7 @@ import "./Downloads.css"
 import { ImageConfigure } from '../../hooks/ImageConfigure';
 import { useContextProvider } from '../../Context/Context';
 const Downloads = () => {
-  
-  const [showDownloadformat,setShowDownloadformat]=useState<boolean>(false);
-  const {setSelectedformat,setIsDownload,selectedformat,filename,isDownload}=useContextProvider();
+  const {setSelectedformat,setIsDownload,selectedformat,filename}=useContextProvider();
   const {downloadImageJPEG,downloadImagePNG}=ImageConfigure();
 
   const handleDownload=()=>{

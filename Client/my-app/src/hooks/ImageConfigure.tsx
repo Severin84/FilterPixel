@@ -3,7 +3,7 @@ import { useContextProvider } from '../Context/Context'
 import axios from 'axios';
 
 export const ImageConfigure = () => {
-    const {brightnesslevel,contrast,saturation,rotationDeg,filename,rawfile,setResponseImage,selectedformat,croppedArea,isDownload,setIsDownload,imageCord,isCroped,setIsCroped}=useContextProvider();
+    const {brightnesslevel,contrast,saturation,rotationDeg,filename,rawfile,setResponseImage,croppedArea,isDownload,setIsDownload,isCroped}=useContextProvider();
          const changesetting=useCallback(async()=>{
             try{
                const response = await axios.post(`http://localhost:8000/api/upload/changeimagetone`,

@@ -1,22 +1,20 @@
 .MainPage{
     height: 98vh;
     width: 95vw;
-    background-color: aquamarine;
 }
 .MainPage_Upload_preview_Download_Binder{
     display: flex;
     width: 90rem;
     height: 25rem;
-    background-color: beige;
 }
 
 .MainPage_Download_Binder{
     width: 15rem;
     height: 15rem;
-    background-color: chocolate;
     margin-top: 2rem;
     margin-left: 2.5rem;
-
+    border: 0.1rem solid black;
+    border-radius: 0.5rem;
 }
 
 .MainPage_Brightness_Saturation_Contrast_Rotate_Deg_Binder{
@@ -29,10 +27,11 @@
 .MainPage_Brightness_Saturation_Contrast_Rotate_Deg{
     width: 60rem;
     height: 22rem;
-    background-color: cornflowerblue;
+    background-color:  rgb(47, 47, 47);
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 0.5rem;
 }
 
 
@@ -45,12 +44,11 @@
         align-items: center;
         margin-top: 0.5rem;
         margin-left: 0.5rem;
-        background-color: indianred;
      }
      .MainPage_Brightness_Saturation_Contrast_Rotate_Deg{
          width: 60rem;
          height: 22rem;
-         background-color: cornflowerblue;
+         background-color: rgb(47, 47, 47);
          display: flex;
          justify-content: center;
          align-items: center;
@@ -59,13 +57,11 @@
         display: flex;
         width: inherit;
         height: 25rem;
-        background-color: rgb(143, 143, 7);
     }
     
     .MainPage_Download_Binder{
         width:14rem;
         height: 15rem;
-        background-color: chocolate;
         margin-top: 2rem;
         margin-left: 0.5rem;
     }
@@ -82,7 +78,7 @@
      .MainPage_Brightness_Saturation_Contrast_Rotate_Deg{
          width: 40rem;
          height: 22rem;
-         background-color: cornflowerblue;
+         background-color:  rgb(47, 47, 47);
          display: flex;
          justify-content: center;
          align-items: center;
@@ -92,13 +88,11 @@
         display: flex;
         width: inherit;
         height: 25rem;
-        background-color: rgb(143, 143, 7);
     }
     
     .MainPage_Download_Binder{
         width: 9rem;
         height: 15rem;
-        background-color: chocolate;
         margin-top: 2rem;
         margin-left: 0.5rem;
     }
@@ -115,7 +109,7 @@
      .MainPage_Brightness_Saturation_Contrast_Rotate_Deg{
          width: 25rem;
          height: 22rem;
-         background-color: cornflowerblue;
+         background-color:  rgb(47, 47, 47);
          display: flex;
          justify-content: center;
          align-items: center;
@@ -125,15 +119,13 @@
         display: flex;
         width: inherit;
         height: 25rem;
-        background-color: rgb(143, 143, 7);
     }
     
     .MainPage_Download_Binder{
         width: 9rem;
         height: 15rem;
-        background-color: chocolate;
         margin-top: 2rem;
-        /* margin-left: 0.5rem; */
+        
     }
 }
 

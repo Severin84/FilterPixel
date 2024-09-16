@@ -1,5 +1,4 @@
 import { Area } from 'react-easy-crop';
-
 interface imageCord{
     x:number,
     y:number,
