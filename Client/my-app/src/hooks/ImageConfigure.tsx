@@ -6,7 +6,7 @@ export const ImageConfigure = () => {
     const {brightnesslevel,contrast,saturation,rotationDeg,filename,rawfile,setResponseImage,croppedArea,isDownload,setIsDownload,isCroped}=useContextProvider();
          const changesetting=useCallback(async()=>{
             try{
-               const response = await axios.post(`http://localhost:8000/api/upload/changeimagetone`,
+               const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/upload/changeimagetone`,
                  {   
                      filename:filename,
                      brightness:brightnesslevel,
@@ -37,7 +37,7 @@ export const ImageConfigure = () => {
             if(rawfile){
                 const formData=new FormData();
                 formData.append("file",rawfile);
-                const response=await axios.post(`http://localhost:8000/api/upload/image`,formData,
+                const response=await axios.post(`${process.env.REACT_APP_BASE_URL}/api/upload/image`,formData,
                     {
                         headers:{
                             "Content-Type":"multipart/form-data"
@@ -52,7 +52,7 @@ export const ImageConfigure = () => {
 
     const handleApplyCrop=async()=>{
          try{
-            const response=await axios.post("http://localhost:8000/api/upload/applyCrop",
+            const response=await axios.post(`${process.env.REACT_APP_BASE_URL}/api/upload/applyCrop`,
                 {   
                     filename:filename,
                     left:croppedArea?.x,
@@ -78,7 +78,7 @@ export const ImageConfigure = () => {
     const downloadImageJPEG=async()=>{
         try{
             if(isCroped===true){
-                const response=await axios.post("http://localhost:8000/api/upload/changetoJPEG",
+                const response=await axios.post(`${process.env.REACT_APP_BASE_URL}/api/upload/changetoJPEG`,
                     {
                         filename:filename,
                         left:croppedArea?.x,
@@ -113,11 +113,11 @@ export const ImageConfigure = () => {
                 }).catch((error)=>{
                     console.log(error)
                 }).finally(()=>{
-                   setIsDownload(false)
+                //    setIsDownload(false)
                 })
 
             }else{
-                const response=await axios.post("http://localhost:8000/api/upload/changetoJPEG",
+                const response=await axios.post(`${process.env.REACT_APP_BASE_URL}/api/upload/changetoJPEG`,
                     {
                         filename:filename,
                         brightness:brightnesslevel,
@@ -152,7 +152,7 @@ export const ImageConfigure = () => {
                 }).catch((error)=>{
                     console.log(error)
                 }).finally(()=>{
-                    setIsDownload(false)
+                    // setIsDownload(false)
                 })
             }
         }catch(error){
@@ -163,7 +163,7 @@ export const ImageConfigure = () => {
     const downloadImagePNG=async()=>{
         try{
             if(isCroped===true){
-                const response=await axios.post("http://localhost:8000/api/upload/changetoPNG",
+                const response=await axios.post(`${process.env.REACT_APP_BASE_URL}/api/upload/changetoPNG`,
                     {
                         filename:filename,
                         left:croppedArea?.x,
@@ -198,10 +198,10 @@ export const ImageConfigure = () => {
                 }).catch((error)=>{
                     console.log(error)
                 }).finally(()=>{
-                  setIsDownload(false)
+                //   setIsDownload(false)
                 })
             }else{
-                const response=await axios.post("http://localhost:8000/api/upload/changetoPNG",
+                const response=await axios.post(`${process.env.REACT_APP_BASE_URL}/api/upload/changetoPNG`,
                     {
                         filename:filename,
                         brightness:brightnesslevel,
@@ -236,7 +236,7 @@ export const ImageConfigure = () => {
                 }).catch((error)=>{
                     console.log(error)
                 }).finally(()=>{
-                   setIsDownload(false)
+                //    setIsDownload(false)
                 })
             }
             

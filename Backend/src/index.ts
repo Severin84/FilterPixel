@@ -1,14 +1,19 @@
-import express , {Request,Response} from "express";
+import express  from "express";
 import upload from "../src/routes/fileUpload/fileUpload"
 import bodyParser from "body-parser";
-import cors from "cors"
-const app=express();
-const port=8000;
+import cors from "cors";
+import dotenv from "dotenv";
 
+const app=express();
+dotenv.config();
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(cors());
+
+const port=process.env.PORT;
+
+
 app.use("/api/upload",upload);
 
 app.listen(port,()=>{

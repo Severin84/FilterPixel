@@ -24,7 +24,7 @@ const ChangeToJPEG=(req:Request,res:Response)=>{
         }
        
         const outputImagePath=path.join(__dirname,'../../../uploads',`${filename.split(".")[0]}_processed.jpeg`);
-
+         console.log(downloadstatus)
         if(downloadstatus===true){
             if(croppedStatus===true){
                  sharp(imagePath)
@@ -114,7 +114,7 @@ const ChangeToPNG=(req:Request,res:Response)=>{
             return res.status(404).json({message:"This image does not exits"});
         }
         const outputImagePath=path.join(__dirname,'../../../uploads',`${filename.split(".")[0]}_processed.png`);
-
+        
         if(downloadstatus===true){
             if(croppedStatus===true){
                 sharp(imagePath)
