@@ -13,12 +13,14 @@ const Sliders = () => {
    
   return (
     <div>
-        <div>
-            <button onClick={()=>changesetting()}>Apply</button>
-        </div>
-        <div>
-            <button onClick={()=>handleStartCrop()}>Crop</button>
-            <button onClick={()=>handleApplyCrop()}>save</button>
+        <div className='slider_buttons'>
+            <div>
+                <button className='Apply_Tuning' onClick={()=>changesetting()}>Apply Tuning</button>
+            </div>
+            <div>
+                <button className='Start_Cropping' onClick={()=>handleStartCrop()}>Start Cropping</button>
+                <button className='Save_Cropped_Image' onClick={()=>handleApplyCrop()}>Save Cropped Image</button>
+            </div>
         </div>
     <div className='Image_Brightness'>
         <input defaultValue={1} type='range' className='BrightnessRange' min="1" max="100" onChange={(val)=>setBrightnesslevel(val.target.value)}/>

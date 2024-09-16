@@ -28,7 +28,6 @@ const Images = () => {
      setCroppedArea(croppedAreaPixels);
   };
 
-
   return (
     <div className='MainPage_Upload_preview_Binder'>
         <div className='Image_Uploaded'>
@@ -47,19 +46,20 @@ const Images = () => {
               <img className='UploadedImage' src={selectImage}  alt="got_image"/>
           }
         </div>
-          <div className='UploadNewImageDiv'>
+        <div className='selectimageandupload'>
+            <div className='UploadNewImageDiv'>
             <label htmlFor="UploadNewImageButton" className='custom_file_upload'>Select Image</label>
             <input type='file' accept='image/*' id="UploadNewImageButton" className='UploadNewImageButton' onChange={(e)=>{handleUploadfile(e)}}/>
             </div>
             <div>
-              <button onClick={()=>uploadImage()}>upload</button>
-             
+              <button className='Upload' onClick={()=>uploadImage()}>Upload Image</button>
             </div>
+        </div>
         <div className='Image_preview'>
         {
             responseImage===null ? 
               <span>Preview</span>
-            :
+            : 
              <img className='UploadedImage' src={responseImage}  alt="got_image"/>
           }
         </div>

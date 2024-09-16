@@ -5,7 +5,6 @@ const Context=createContext<settings|null>(null);
 
 
 export const ContextProvider=({children}:{children:ReactNode})=>{
-
     const [brightnesslevel,setBrightnesslevel]=useState<string>('1');
     const [saturation,setSaturation]=useState<string>('1');
     const [contrast,setContrast]=useState<string>('1');

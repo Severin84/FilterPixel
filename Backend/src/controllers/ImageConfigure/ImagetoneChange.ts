@@ -42,11 +42,10 @@ const ChangeImageTone=async(req:Request,res:Response)=>{
 
 const applyCrop=(req:Request,res:Response)=>{
   try{
-    
-    const {filename,left,top,Cheight,Cwidth,uploadedImagewidth,uploadedImageheight}=req.body
+    const {filename,left,top,Cheight,Cwidth}=req.body
    
     if(!filename||!left||!top||!Cheight||!Cwidth){
-       res.status(400).json({message:"insufficient Data"});
+      return res.status(400).json({message:"insufficient Data"});
     }
     
     const inputImage=path.resolve(__dirname,"../../../uploads",filename);
@@ -63,13 +62,14 @@ const applyCrop=(req:Request,res:Response)=>{
         .extract({left:left,top:top,width:Cwidth,height:Cheight})
         .toFile(outputfilepath)
         .then(()=>{
-          res.status(200).sendFile(outputfilepath);
+          return res.status(200).sendFile(outputfilepath);
         })
         .catch((error)=>{
-          res.status(400).json({message:error})
-    })
+          return res.status(400).json({message:error})
+        })
+
   }catch(error){
-      res.status(400).json({message:error})
+      return res.status(400).json({message:error})
   }
 }
 

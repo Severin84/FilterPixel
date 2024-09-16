@@ -6,12 +6,16 @@ const Downloads = () => {
   
   const [showDownloadformat,setShowDownloadformat]=useState<boolean>(false);
   const {setSelectedformat}=useContextProvider();
-  const {downloadImage}=ImageConfigure();
+  const {downloadImageJPEG,downloadImagePNG}=ImageConfigure();
 
-  const handleSelectformat=(value:string)=>{
+  const handleSelectformatJPEG=(value:string)=>{
       setSelectedformat(value);
-      downloadImage();
+      downloadImageJPEG();
   }
+  const handleSelectformatPNG=(value:string)=>{
+    setSelectedformat(value);
+    downloadImagePNG();
+}
 
   return (
     <div>
@@ -21,8 +25,8 @@ const Downloads = () => {
        
        <div style={{transform:showDownloadformat? "translateY(1rem)":"translateY(0rem)",transition:"transform 500ms ease",visibility:showDownloadformat?"visible":"hidden"}} className='format_Div'>
          <div className='format_Binder'>
-          <span className='JPEG_format' onClick={()=>handleSelectformat("jpeg")}>JPEG Format</span>
-          <span className='png_format'  onClick={()=>handleSelectformat("png")}>PNG Format</span>
+          <span className='JPEG_format' onClick={()=>handleSelectformatJPEG("jpeg")}>JPEG Format</span>
+          <span className='png_format'  onClick={()=>handleSelectformatPNG("png")}>PNG Format</span>
          </div>
        </div>
     </div>

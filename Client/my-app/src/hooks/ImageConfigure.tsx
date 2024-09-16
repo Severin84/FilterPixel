@@ -76,16 +76,19 @@ export const ImageConfigure = () => {
          }
     }
 
-    const downloadImage=async()=>{
+    const downloadImageJPEG=async()=>{
         try{
-            const response=await axios.post("http://localhost:8000/api/upload/changeto",
+            const response=await axios.post("http://localhost:8000/api/upload/changetoJPEG",
                 {
                     filename:filename,
-                    convertto:selectedformat,
                     brightness:brightnesslevel,
                     contrast:contrast,
                     saturation:saturation,
-                    rotateDeg:rotationDeg
+                    rotateDeg:rotationDeg,
+                    left:croppedArea?.x,
+                    top:croppedArea?.y,
+                    Cheight:croppedArea?.height,
+                    Cwidth:croppedArea?.width,
                 },{
                     headers:{
                         "Content-Type":"application/json"
@@ -111,5 +114,43 @@ export const ImageConfigure = () => {
         }
     }
 
-    return {uploadImage,changesetting,downloadImage,handleApplyCrop};
+    const downloadImagePNG=async()=>{
+        try{
+            const response=await axios.post("http://localhost:8000/api/upload/changetoPNG",
+                {
+                    filename:filename,
+                    brightness:brightnesslevel,
+                    contrast:contrast,
+                    saturation:saturation,
+                    rotateDeg:rotationDeg,
+                    left:croppedArea?.x,
+                    top:croppedArea?.y,
+                    Cheight:croppedArea?.height,
+                    Cwidth:croppedArea?.width,
+                },{
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+                     responseType:"arraybuffer"
+                }
+            ).then((resposegot)=>{
+                const blob=new Blob([resposegot.data],{type:resposegot.headers["content-type"]});
+                const imageUrl=URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href=imageUrl;
+                const onlyFilename=filename.split(".")[0];
+                if(onlyFilename && onlyFilename.length){
+                    a.download=onlyFilename;
+                }
+                document.body.appendChild(a);
+                a.click();
+            }).catch((error)=>{
+                console.log(error)
+            })
+        }catch(error){
+             console.log(error)
+        }
+    }
+    
+    return {uploadImage,changesetting,downloadImageJPEG,handleApplyCrop,downloadImagePNG};
 }
